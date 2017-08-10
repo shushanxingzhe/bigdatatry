@@ -37,12 +37,23 @@ public class Alsobuy {
 
             Set<String> result = new HashSet<String>();
 
-            for (String goods : goods_arr ) {
-                for (String goods1 : goods_arr ) {
-                    if(goods.compareTo(goods1) > 0) {
-                        result.add(goods1 +"_"+ goods);
-                    }else if(goods.compareTo(goods1) < 0) {
-                        result.add(goods +"_"+ goods1);
+//            for (String goods : goods_arr ) {
+//                for (String goods1 : goods_arr ) {
+//                    if(goods.compareTo(goods1) > 0) {
+//                        result.add(goods1 +"_"+ goods);
+//                    }else if(goods.compareTo(goods1) < 0) {
+//                        result.add(goods +"_"+ goods1);
+//                    }
+//                }
+//            }
+
+            // more effecient algorithm
+            for (int i= 0;i < goods_arr.length-1;i++ ) {
+                for (int j= i + 1;j < goods_arr.length;j++ ) {
+                    if(goods_arr[i].compareTo(goods_arr[j]) > 0) {
+                        result.add(goods_arr[j] +"_"+ goods_arr[i]);
+                    }else if(goods_arr[i].compareTo(goods_arr[j]) < 0) {
+                        result.add(goods_arr[i] +"_"+ goods_arr[j]);
                     }
                 }
             }
